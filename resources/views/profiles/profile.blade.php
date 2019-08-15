@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     <div class="justify-content-center mt-4 mx-4" style="max-width: 935px;">
-        <?php echo $user->profile ?>
         <section id="profile-header" class="d-flex w-100 mb-5">
             <div class="m-5">
                 <img src="https://scontent-dfw5-2.cdninstagram.com/vp/1159a03d5ff46bc9ee88ab2ae07055e1/5DE8C41F/t51.2885-19/s150x150/47691324_352744575288551_415039053637877760_n.jpg?_nc_ht=scontent-dfw5-2.cdninstagram.com" alt="User Profile Picture" class="rounded-circle" style="height: 150px; width: 150px;">
@@ -13,6 +12,7 @@
                     <div class="mr-3 lead">{{ $user->username}}</div>
                     <div class="mr-3"><button class="btn btn-sm btn-outline-secondary">Edit Profile</button></div>
                     <div class="mr-3"><button class="btn btn-sm btn-outline-secondary">Settings</button></div>
+                    <div class="mr-3"><button class="btn btn-sm btn-outline-secondary">Post</button></div>
                 </div>
                 <div class="d-flex mb-2">
                     <div class="mr-4"><strong>54</strong> posts</div>

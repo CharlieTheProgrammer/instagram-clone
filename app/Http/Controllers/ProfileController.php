@@ -25,7 +25,7 @@ class ProfileController extends Controller
     public function index($user)
     {
         $user = User::find($user);
-        return view('profile', [
+        return view('profiles/profile', [
             'user' => $user
         ]);
     }
