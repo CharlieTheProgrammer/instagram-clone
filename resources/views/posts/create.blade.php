@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="justify-content-center mt-4 mx-4" style="max-width: 935px;">
-        <form action="/p" enctype="multipart/form-data" method="post" novalidate>
+        <form action="/p" enctype="multipart/form-data" method="post" novalidate autocomplete="off">
 
         @csrf
             <div class="col-8 offset-2">
@@ -14,7 +14,7 @@
                 <div class="form-group row">
                     <label for="caption" class="col-md-4 col-form-label">Post Caption</label>
 
-                    <input id="caption" type="caption" class="form-control @error('caption') is-invalid @enderror" caption="caption" name="caption" value="{{ old('caption') }}" required autocomplete="caption">
+                    <input id="caption" type="caption" class="form-control @error('caption') is-invalid @enderror" caption="caption" name="caption" value="{{ old('caption') }}" required>
 
                     @error('caption')
                     <span class="invalid-feedback" role="alert">
