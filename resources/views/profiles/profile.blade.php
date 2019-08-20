@@ -12,10 +12,12 @@
                     <div class="mr-3 lead">{{ $user->username}}</div>
                     <div class="mr-3"><button class="btn btn-sm btn-outline-secondary">Edit Profile</button></div>
                     <div class="mr-3"><button class="btn btn-sm btn-outline-secondary">Settings</button></div>
-                    <div class="mr-3"><button class="btn btn-sm btn-outline-secondary">Post</button></div>
+                    <div class="mr-3">
+                        <a href="/p/create" class=""><button class="btn btn-sm btn-outline-secondary">Post</button></a>
+                    </div>
                 </div>
                 <div class="d-flex mb-2">
-                    <div class="mr-4"><strong>54</strong> posts</div>
+                    <div class="mr-4"><strong>{{ $user->posts->count() }}</strong> posts</div>
                     <div class="mr-4"><strong>29</strong> followers</div>
                     <div class="mr-4"><strong>39</strong> following</div>
                 </div>
@@ -53,29 +55,13 @@
             </nav>
 
             <div id="profile-grid-items" class="d-flex flex-wrap justify-content-around">
-                <div id="profile-grid-item" class="p-2">
-                    <a href="">
-                        <img src="https://scontent-dfw5-2.cdninstagram.com/vp/1e6746f7938508676d53d919c2d67ed2/5DD430F2/t51.2885-15/e35/s320x320/58694274_116288559361054_5330068245388989469_n.jpg?_nc_ht=scontent-dfw5-2.cdninstagram.com" alt="" style="height: 270px; width: 270px">
-                    </a>
-                </div>
-
-                <div id="profile-grid-item" class="p-2">
-                    <a href="">
-                        <img src="https://scontent-dfw5-2.cdninstagram.com/vp/1e6746f7938508676d53d919c2d67ed2/5DD430F2/t51.2885-15/e35/s320x320/58694274_116288559361054_5330068245388989469_n.jpg?_nc_ht=scontent-dfw5-2.cdninstagram.com" alt="" style="height: 270px; width: 270px">
-                    </a>
-                </div>
-
-                <div id="profile-grid-item" class="p-2">
-                    <a href="">
-                        <img src="https://scontent-dfw5-2.cdninstagram.com/vp/1e6746f7938508676d53d919c2d67ed2/5DD430F2/t51.2885-15/e35/s320x320/58694274_116288559361054_5330068245388989469_n.jpg?_nc_ht=scontent-dfw5-2.cdninstagram.com" alt="" style="height: 270px; width: 270px">
-                    </a>
-                </div>
-
-                <div id="profile-grid-item" class="p-2">
-                    <a href="">
-                        <img src="https://scontent-dfw5-2.cdninstagram.com/vp/1e6746f7938508676d53d919c2d67ed2/5DD430F2/t51.2885-15/e35/s320x320/58694274_116288559361054_5330068245388989469_n.jpg?_nc_ht=scontent-dfw5-2.cdninstagram.com" alt="" style="height: 270px; width: 270px">
-                    </a>
-                </div>
+                @foreach($user->posts as $post)
+                    <div id="profile-grid-item" class="p-2">
+                        <a href="/p/{{ $post->id }}">
+                            <img src="/storage/{{ $post->image }}" alt="{{ $post->title }}" style="height: 270px; width: 270px">
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </section>
     </div>
