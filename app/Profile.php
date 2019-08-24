@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-    //
+    protected $guarded = [];
+
     public function user()
     {
         // Behind the scenes, Eloquent uses the class name followed by '_id'

@@ -19,8 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Profile Routes
 Route::get('/profile/{user}', 'ProfileController@index')->name('profile.show');
+Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
+Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update');
 
+// Post Routes
 Route::get('/p/create', 'PostsController@create');
 Route::post('/p', 'PostsController@save');
 Route::get('/p/{post}', 'PostsController@show');

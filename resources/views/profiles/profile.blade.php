@@ -10,8 +10,17 @@
 			<div class="d-flex flex-column justify-content-center ml-4">
 				<div class="d-flex mb-2 align-items-center">
 					<div class="mr-3 lead">{{ $user->username}}</div>
-					<div class="mr-3"><button class="btn btn-sm btn-outline-secondary">Edit Profile</button></div>
-					<div class="mr-3"><button class="btn btn-sm btn-outline-secondary">Settings</button></div>
+					<div class="mr-3">
+						<a href="/profile/{{ $user->id }}/edit">
+							<button class="btn btn-sm btn-outline-secondary">Edit Profile</button>
+						</a>
+					</div>
+					<div class="mr-3">
+						<a href="/">
+						<!-- Are we doing a pop-up here? If so, then this need not be wrapped in an anchor tag. -->
+							<button class="btn btn-sm btn-outline-secondary">Settings</button>
+						</a>
+					</div>
 					<div class="mr-3">
 						<a href="/p/create" class=""><button class="btn btn-sm btn-outline-secondary">Post</button></a>
 					</div>
