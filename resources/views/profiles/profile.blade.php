@@ -5,11 +5,12 @@
 	<div class="justify-content-center mt-4 mx-4" style="max-width: 935px;">
 		<section id="profile-header" class="d-flex w-100 mb-5">
 			<div class="m-5">
-				<img src="https://scontent-dfw5-2.cdninstagram.com/vp/1159a03d5ff46bc9ee88ab2ae07055e1/5DE8C41F/t51.2885-19/s150x150/47691324_352744575288551_415039053637877760_n.jpg?_nc_ht=scontent-dfw5-2.cdninstagram.com" alt="User Profile Picture" class="rounded-circle" style="height: 150px; width: 150px;">
+				<img src="/storage/{{ $user->profile->image }}" alt="User Profile Picture" class="rounded-circle" style="height: 150px; width: 150px;">
 			</div>
 			<div class="d-flex flex-column justify-content-center ml-4">
 				<div class="d-flex mb-2 align-items-center">
 					<div class="mr-3 lead">{{ $user->username}}</div>
+					@can('update', $user->profile)
 					<div class="mr-3">
 						<a href="/profile/{{ $user->id }}/edit">
 							<button class="btn btn-sm btn-outline-secondary">Edit Profile</button>
@@ -17,13 +18,14 @@
 					</div>
 					<div class="mr-3">
 						<a href="/">
-						<!-- Are we doing a pop-up here? If so, then this need not be wrapped in an anchor tag. -->
+							<!-- Are we doing a pop-up here? If so, then this need not be wrapped in an anchor tag. -->
 							<button class="btn btn-sm btn-outline-secondary">Settings</button>
 						</a>
 					</div>
 					<div class="mr-3">
 						<a href="/p/create" class=""><button class="btn btn-sm btn-outline-secondary">Post</button></a>
 					</div>
+					@endcan
 				</div>
 				<div class="d-flex mb-2">
 					<div class="mr-4"><strong>{{ $user->posts->count() }}</strong> posts</div>
@@ -31,7 +33,7 @@
 					<div class="mr-4"><strong>39</strong> following</div>
 				</div>
 				<div><strong>{{ $user->name }}</strong></div>
-				<div>Traveling abroad, enjoying life, and working hard at that #lifestyledesign. Let's make it happen! {{ $user->profile ?? 'N/A'}}</div>
+				<div>{{ $user->profile->description ?? ''}}</div>
 			</div>
 		</section>
 
